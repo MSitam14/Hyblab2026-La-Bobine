@@ -38,6 +38,7 @@ main{
   display: flex;
   justify-content: center;
   top:0px;
+  z-index: 999;
 
 }
 
@@ -386,7 +387,7 @@ button{
 }
 
 .summary {
-  position: absolute;
+  position: inherit;
   left: 100%;
   top: 100%;
   width: 185%;
@@ -397,11 +398,13 @@ button{
   padding-top: 30%;
   padding-bottom: 40%;
   transition: opacity 0.3s ease;
+  
 }
 
 .summary.is-open {
   display: block;
   opacity: 1;
+  padding: 10px;
 }
 
 #map > * {
