@@ -45,23 +45,31 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
 
       button.textContent = ` ${buttonNumber} `;
 
+      const img = document.createElement("img");
+      let path = "img/"
       switch (buttonNumber) {
         case 1:
-          button.className ="jud"; // Change color as desired
+          button.className ="jud";
+          img.src = path + "Picto_ImpactJuridique.svg";
           break;
         case 2:
-          button.className ="med"; // Change color as desired 
+          button.className ="med";
+          img.src = path + "Picto_ImpactMediatique.svg";
           break;
         case 3:
           button.className ="pub";
+          img.src = path + "Picto_ImpactPublic.svg";
           break;
         case 4:
           button.className ="inst";
+          img.src = path + "Picto_ImpactInstitutionnel.svg";
           break;
         default:
           button.style.backgroundColor = '#d5d5d5d1';
           break;
       }
+
+      button.appendChild(img);
 
       row.appendChild(button);
       if(State[button.textContent] === true){button.disabled = true; console.log(button.disabled);}
@@ -234,7 +242,6 @@ function addEmptyRow(aRow = 1) {
   box1.row = aRow;
   box1.column = 1;
   const text1 = document.createElement("p");
-  text1.textContent = "T";
   box1.appendChild(text1);
 
   const box2 = document.createElement("div");
@@ -244,7 +251,6 @@ function addEmptyRow(aRow = 1) {
   box2.row = aRow;
   box2.column = 2;
   const text2 = document.createElement("p");
-  text2.textContent = "T";
   box2.appendChild(text2);
 
   mapCol1.appendChild(box1);
