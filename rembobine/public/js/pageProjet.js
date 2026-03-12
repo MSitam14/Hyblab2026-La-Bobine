@@ -8,6 +8,18 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
   box.row = aRow;
   box.column = aColumn;
 
+  box.addEventListener('click', () => {
+    // Do not trigger while choice buttons are still visible.
+    if (box.querySelector('button')) {
+      return;
+    }
+
+    const overlay = document.getElementById('popup-overlay');
+    const popupText = document.getElementById('popup-text');
+    popupText.textContent = box.querySelector('p') ? box.querySelector('p').textContent : '';
+    overlay.classList.remove('popup-hidden');
+  });
+
   for (let rowIndex = 0; rowIndex < 2; rowIndex += 1) {
     const row = document.createElement("div");
     row.className = "row";
@@ -24,8 +36,9 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
   }
 
   box.querySelectorAll('button').forEach(option => {
-    option.addEventListener('click', async () => {
-      // Send the user's choice to our API
+    option.addEventListener('click', async (event) => {
+      // Prevent this click from bubbling to the box click handler.
+      event.stopPropagation();
 
       const value = option.textContent;
 
@@ -73,7 +86,7 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
 
       let boxNum = Math.floor(Math.random() * boxsFreeList.length);
 
-      const theChoosenBox = boxsFreeList[boxNum];
+      let theChoosenBox = boxsFreeList[boxNum];
       while (theChoosenBox.row == box.row && theChoosenBox.column == box.column) {
         console.warn('The chosen box is the same as the current box. Choosing another one.');
         boxNum = Math.floor(Math.random() * boxsFreeList.length);
@@ -81,8 +94,6 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
       }
 
       replaceBox(theChoosenBox, createButtonBox(`box${theChoosenBox.row}${theChoosenBox.column}`, theChoosenBox.row, theChoosenBox.column));
-
-      // box.parentElement.appendChild(createButtonBox(`box`));
     });
   });
 
@@ -170,6 +181,17 @@ function replaceBox(oldBox, newBox) {
 // async init function (because of the awaits on fetches)
 const initPageProjet = async function () {
 
+  const popupOverlay = document.getElementById('popup-overlay');
+
+  document.getElementById('popup-close').addEventListener('click', () => {
+    popupOverlay.classList.add('popup-hidden');
+  });
+
+  popupOverlay.addEventListener('click', (event) => {
+    if (event.target === popupOverlay) {
+      popupOverlay.classList.add('popup-hidden');
+    }
+  });
 
   // Retrieve the partner's topic from our API
   let response = await fetch('api/topic');
