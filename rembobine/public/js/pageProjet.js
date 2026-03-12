@@ -25,74 +25,64 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
 
   box.querySelectorAll('button').forEach(option => {
     option.addEventListener('click', async () => {
-        // Send the user's choice to our API
+      // Send the user's choice to our API
 
-        const value = option.textContent;
+      const value = option.textContent;
 
-        //const box = option.parentElement.parentElement;
-        // Remove all buttons
-        option.parentElement.querySelectorAll('button').forEach(btn => btn.remove());
+      //const box = option.parentElement.parentElement;
+      // Remove all buttons
+      option.parentElement.querySelectorAll('button').forEach(btn => btn.remove());
 
-        // Remove all rows
-        box.querySelectorAll('.row').forEach(row => row.remove());
+      // Remove all rows
+      box.querySelectorAll('.row').forEach(row => row.remove());
 
-        // Change box background color
+      // Change box background color
 
-        switch (parseInt(value)) {
-          case 1: 
-            box.style.backgroundColor = '#ff2ba3d1'; // Change color as desired
-            break;
-          case 2:
-            box.style.backgroundColor = '#fff700d1'; // Change color as desired 
-            break;
-          case 3:
-            box.style.backgroundColor = '#643ff793';
-            break;
-          case 4:
-            box.style.backgroundColor = '#2bff55d1';
-            break;
-          default: 
-            box.style.backgroundColor = '#d5d5d5d1';
-            break;
-        }
-          
-        // Display clicked button text
-        const textDisplay = document.createElement('p');
-        textDisplay.textContent = value;
-        box.appendChild(textDisplay);
+      switch (parseInt(value)) {
+        case 1:
+          box.style.backgroundColor = '#ff2ba3d1'; // Change color as desired
+          break;
+        case 2:
+          box.style.backgroundColor = '#fff700d1'; // Change color as desired 
+          break;
+        case 3:
+          box.style.backgroundColor = '#643ff793';
+          break;
+        case 4:
+          box.style.backgroundColor = '#2bff55d1';
+          break;
+        default:
+          box.style.backgroundColor = '#d5d5d5d1';
+          break;
+      }
 
-        if(getBoxByPosition(box.row + 1, box.column) == null) {
-          console.log("====================== add row ==========================");
-          addEmptyRow(box.row + 1);
-        }
+      // Display clicked button text
+      const textDisplay = document.createElement('p');
+      textDisplay.textContent = value;
+      box.appendChild(textDisplay);
 
-        const boxsFreeList = getFreeAdgacentBox(box);
-        if (boxsFreeList.length === 0) {
-          console.warn('No free box available to move buttons.');
-          return;
-        }
+      if (getBoxByPosition(box.row + 1, box.column) == null) {
+        addEmptyRow(box.row + 1);
+      }
 
-        let boxNum = Math.floor(Math.random() * boxsFreeList.length);
+      const boxsFreeList = getFreeAdgacentBox(box);
+      if (boxsFreeList.length === 0) {
+        console.warn('No free box available to move buttons.');
+        return;
+      }
 
-        console.log(boxNum);
-        console.log(boxsFreeList);
+      let boxNum = Math.floor(Math.random() * boxsFreeList.length);
 
-        const theChoosenBox = boxsFreeList[boxNum];
-        while (theChoosenBox.row == box.row && theChoosenBox.column == box.column) {
-          console.warn('The chosen box is the same as the current box. Choosing another one.');
-          boxNum = Math.floor(Math.random() * boxsFreeList.length);          
-          theChoosenBox = boxsFreeList[boxNum];
-        }
+      const theChoosenBox = boxsFreeList[boxNum];
+      while (theChoosenBox.row == box.row && theChoosenBox.column == box.column) {
+        console.warn('The chosen box is the same as the current box. Choosing another one.');
+        boxNum = Math.floor(Math.random() * boxsFreeList.length);
+        theChoosenBox = boxsFreeList[boxNum];
+      }
 
-        console.log(theChoosenBox);
+      replaceBox(theChoosenBox, createButtonBox(`box${theChoosenBox.row}${theChoosenBox.column}`, theChoosenBox.row, theChoosenBox.column));
 
-        replaceBox(theChoosenBox, createButtonBox(`box${theChoosenBox.row}${theChoosenBox.column}`, theChoosenBox.row, theChoosenBox.column));
-
-        
-
-        
-
-        // box.parentElement.appendChild(createButtonBox(`box`));
+      // box.parentElement.appendChild(createButtonBox(`box`));
     });
   });
 
@@ -142,33 +132,29 @@ function getFreeAdgacentBox(box) {
   const column = box.column;
   let boxList = [];
 
-  
+
   let boxUp = getBoxByPosition(row - 1, column);
-  if(boxUp != null && boxUp.isFree) {
+  if (boxUp != null && boxUp.isFree) {
     boxList.push(boxUp);
   }
   let boxDown = getBoxByPosition(row + 1, column);
-  if(boxDown != null && boxDown.isFree) {
+  if (boxDown != null && boxDown.isFree) {
     boxList.push(boxDown);
   }
   let boxLeft = getBoxByPosition(row, column - 1);
-  if(boxLeft != null && boxLeft.isFree) {
+  if (boxLeft != null && boxLeft.isFree) {
     boxList.push(boxLeft);
   }
   let boxRight = getBoxByPosition(row, column + 1);
-  if(boxRight != null && boxRight.isFree) {
+  if (boxRight != null && boxRight.isFree) {
     boxList.push(boxRight);
   }
-
-  console.log(boxList.length);
 
   if (boxList.length == 0) {
     let boxs = document.querySelectorAll('.box');
 
-    console.log("================================================================================================");
-
     for (const box of boxs) {
-      if(box.isFree) {
+      if (box.isFree) {
         boxList.push(box);
       }
     }
