@@ -336,7 +336,7 @@ const initPageProjet = async function () {
 };
 
 const summary = document.querySelector(".summary");
-const arrow = document.querySelector(".summary-container img");
+const arrow = document.querySelector(".summary-container");
 
 arrow.addEventListener("click", () => {
   summary.classList.toggle("is-open");
