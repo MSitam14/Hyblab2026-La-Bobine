@@ -544,6 +544,7 @@ const impact_arrow = document.querySelector(".impact-unfolding");
 impact_arrow.addEventListener("click", () => {
   impact_explanation.classList.toggle("is-open");
 });
+
 const sommet = document.querySelector("#top");
 const dest = document.querySelector(".swiper-slide");
 // const body = document.querySelector("post-template tag-impact");
