@@ -384,5 +384,4 @@ const arrow = document.querySelector(".summary-container img");
 
 arrow.addEventListener("click", () => {
   summary.classList.toggle("is-open");
-  console.log("good")
 });
