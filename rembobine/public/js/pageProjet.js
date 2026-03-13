@@ -74,6 +74,7 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
 
   }
 
+
   box.querySelectorAll('button').forEach(option => {
     option.addEventListener('click', async (event) => {
       // Prevent this click from bubbling to the box click handler.
@@ -240,7 +241,9 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
             popupText.textContent = Actions[box.nAction].Texteplus;
             break;
         }
-        overlay.classList.remove('popup-hidden');
+      popupBox.className += " animate__animated animate__slideInUp"
+      overlay.classList.remove('popup-hidden');
+      
       });
       if (getBoxByPosition(box.row + 1, box.column) == null) {
         addEmptyRow(box.row + 1);
@@ -284,10 +287,10 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
       if (box.color != 5) {
       switch (parseInt(value)) {
         case 1:
-          box.className += " jud"; // Change color as desired
+          box.className +=" jud";
           break;
         case 2:
-          box.className += " med"; // Change color as desired 
+          box.className +=" med";
           break;
         case 3:
           box.className += " pub";
@@ -305,8 +308,13 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
         box.className += " finished";
 
       }
-
-      // box.parentElement.appendChild(createButtonBox(`box`));
+      
+      if(box.row%2 == 0)
+      {
+        let citationColumn = box.column == 1 ? 2 : 1
+        let citationRow = box.row;
+        addCitation(getBoxCitationByPosition(citationRow,citationColumn),box.color)
+      }
     });
   });
 
@@ -351,8 +359,33 @@ function addEmptyRow(aRow = 1) {
   mapCol2.appendChild(box2);
 }
 
+function addCitation(box,impactId)
+{
+  switch (impactId) {
+        case 1:
+          box.className +=" jud"; // Change color as desired
+          break;
+        case 2:
+          box.className +=" med"; // Change color as desired 
+          break;
+        case 3:
+          box.className +=" pub";
+          break;
+        case 4:
+          box.className +=" inst";
+          break;
+        default:
+          break;
+      }
+  
+  box.className += " animate__animated animate__fadeInDown"
+  //TODO
+  //ajouter le texte dans la boite contenant la citation
+  
+}
+
 function getBoxByPosition(row, column) {
-  const boxes = document.querySelectorAll('.box');
+  const boxes = document.querySelectorAll('.box',);
   for (const box of boxes) {
     if (box.row === row && box.column === column) {
       return box;
@@ -360,6 +393,17 @@ function getBoxByPosition(row, column) {
   }
   return null; // Return null if no box is found at the specified position
 }
+
+function getBoxCitationByPosition(row, column) {
+  const boxes = document.querySelectorAll('.boxCitation',);
+  for (const box of boxes) {
+    if (box.row === row && box.column === column) {
+      return box;
+    }
+  }
+  return null; // Return null if no box is found at the specified position
+}
+
 
 function getFreeAdgacentBox(box) {
   const row = box.row;
