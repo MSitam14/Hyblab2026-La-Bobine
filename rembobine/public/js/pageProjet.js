@@ -4,6 +4,7 @@ let Institutionnel = null;
 let Mediatique = null;
 let Public = null;
 let Judiciaire = null;
+let QHeader = null;
 
 let count_institutionnel = 0;
 let count_mediatique = 0;
@@ -85,6 +86,7 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
         // Change box background color
         const textDisplay = document.createElement('p');
         textDisplay.id = "base";
+        let qheader = document.querySelector(".main-question");
         switch (parseInt(value)) {
           case 1:
             box.color = 1;
@@ -96,11 +98,10 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
               textDisplay.textContent = "Vous avez vu tout les impact !";
               State[value] = true;
 
-
             } else{
 
               textDisplay.textContent = Judiciaire[box.ngroup].Base;
-
+              qheader.textContent = Judiciaire[box.ngroup].Question;
             }
             
             break;
@@ -117,7 +118,7 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
             } else{
 
               textDisplay.textContent = Mediatique[box.ngroup].Base;
-
+              qheader.textContent = Mediatique[box.ngroup].Question;
             }
 
             break;
@@ -134,7 +135,7 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
             } else{
 
               textDisplay.textContent = Public[box.ngroup].Base;
-
+              qheader.textContent = Public[box.ngroup].Question;
             }
             
             break;
@@ -151,7 +152,7 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
             } else{
 
               textDisplay.textContent = Institutionnel[box.ngroup].Base;
-
+              qheader.textContent = Institutionnel[box.ngroup].Question;
             }
 
             break;
@@ -163,6 +164,7 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
         box.appendChild(textDisplay);
         console.log(textDisplay);
       
+
 
       box.addEventListener('click', () => {
         // Do not trigger while choice buttons are still visible.
@@ -205,7 +207,6 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
       }
 
       let boxNum = Math.floor(Math.random() * boxsFreeList.length);
-
       let theChoosenBox = boxsFreeList[boxNum];
       while (theChoosenBox.row == box.row && theChoosenBox.column == box.column) {
         console.warn('The chosen box is the same as the current box. Choosing another one.');
@@ -362,6 +363,7 @@ const initPageProjet = async function () {
   Mediatique = article.Mediatique;
   Public = article.Public;
   Judiciaire = article.Judiciaire;
+  QHeader = article.QHeader;
 
   addEmptyRow();
 
