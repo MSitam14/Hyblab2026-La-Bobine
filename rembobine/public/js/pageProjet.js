@@ -6,6 +6,7 @@ let Public = null;
 let Judiciaire = null;
 let Actions = null;
 let QHeader = null;
+let Citations = null;
 
 let count_institutionnel = 0;
 let count_mediatique = 0;
@@ -403,15 +404,27 @@ function addCitation(box, impactId) {
   switch (impactId) {
     case 1:
       box.className += " jud"; // Change color as desired
+      const randomIndex = Math.floor(Math.random() * Citations.Judiciaire.length);
+      box.textContent = Citations.Judiciaire[randomIndex].citation;
+      Citations.Judiciaire.splice(randomIndex, 1);
       break;
     case 2:
       box.className += " med"; // Change color as desired 
+      const randomIndex2 = Math.floor(Math.random() * Citations.Mediatique.length);
+      box.textContent = Citations.Mediatique[randomIndex2].citation;
+      Citations.Mediatique.splice(randomIndex2, 1);
       break;
     case 3:
       box.className += " pub";
+      const randomIndex3 = Math.floor(Math.random() * Citations.Public.length);
+      box.textContent = Citations.Public[randomIndex3].citation;
+      Citations.Public.splice(randomIndex3, 1);
       break;
     case 4:
       box.className += " inst";
+      const randomIndex4 = Math.floor(Math.random() * Citations.Institutionnel.length);
+      box.textContent = Citations.Institutionnel[randomIndex4].citation;
+      Citations.Institutionnel.splice(randomIndex4, 1);
       break;
     default:
       break;
@@ -509,6 +522,7 @@ const initPageProjet = async function () {
   Judiciaire = article.Judiciaire;
   Actions = article.Actions;
   QHeader = article.QHeader;
+  Citations = article.Citations;
 
   addEmptyRow();
 
