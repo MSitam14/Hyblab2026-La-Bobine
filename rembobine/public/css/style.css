@@ -860,30 +860,60 @@ button {
 
 /* ========= ARTICLE ORIGINAL ============*/
 
+.original-article-discover {
+  border: 1px solid #8772fa;
+  background-color: white;
+  width: 40%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.original-article-discover p {
+    text-align: left;
+    margin: 7%;
+}
+
+.original-article-discover img {
+    margin: 7%;
+    margin-top: 0;
+    width: 30%;
+    height: auto;
+    transform: rotate(180deg);
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.original-article-container {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease;
+  margin-bottom: 40px;
+}
+
 .original-article {
-    background-color: white;
-    border: 1px solid rgb(228, 223, 223);
-    border-radius: 12px;
-    padding: 25px;
-    margin-bottom: 40px;
-}
-
-.article-image {
-  margin: 0px;
-  width: 100%;
-  height: 200px;
   overflow: hidden;
-  position: relative;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border: 1px solid #8772fa;
+  background-color: white;
 }
 
-.article-image img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
+.original-article-container a {
+  color: black !important;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.original-article-container.is-open {
+  grid-template-rows: 1fr;
+}
+
+.original-article-container.is-open div {
+  opacity: 1;
+  padding: 20px;
 }
 
 .logo-media {
