@@ -231,6 +231,12 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
         const popupText = document.getElementById('popup-text');
         const popupBox = document.getElementById('popup-box');
 
+        // Remove any existing copy button
+        const existingCopy = document.getElementById("copy-button");
+        if (existingCopy) {
+          existingCopy.remove();
+        }
+
         switch (box.color) {
           case 1:
             popupBox.className = "jud";
@@ -552,6 +558,7 @@ const impact_arrow = document.querySelector(".impact-unfolding");
 impact_arrow.addEventListener("click", () => {
   impact_explanation.classList.toggle("is-open");
 });
+
 const sommet = document.querySelector("#top");
 const dest = document.querySelector(".swiper-slide");
 // const body = document.querySelector("post-template tag-impact");
