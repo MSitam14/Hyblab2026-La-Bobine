@@ -141,7 +141,7 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
               box.className += " finished box-action";
               box.color = 5;
             } else {
-              textDisplay.textContent = "Vous avez vu tout les impacts !";
+              textDisplay.textContent = "Vous avez vu tout les impacts judiciaires !";              
             }
             State[value] = true;
           } else {
@@ -171,7 +171,7 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
               box.className += " finished box-action";
               box.color = 5;
             } else {
-              textDisplay.textContent = "Vous avez vu tout les impacts !";
+              textDisplay.textContent = "Vous avez vu tout les impacts médiatiques !";
             }
             State[value] = true;
           } else {
@@ -200,7 +200,7 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
               box.className += " finished box-action";
               box.color = 5;
             } else {
-              textDisplay.textContent = "Vous avez vu tout les impacts !";
+              textDisplay.textContent = "Vous avez vu tout les impacts publics !";
             }
             State[value] = true;
           } else {
@@ -229,7 +229,7 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
               box.className += " finished box-action";
               box.color = 5;
             } else {
-              textDisplay.textContent = "Vous avez vu tout les impacts !";
+              textDisplay.textContent = "Vous avez vu tout les impacts institutionnels !";
             }
             State[value] = true;
           } else {
