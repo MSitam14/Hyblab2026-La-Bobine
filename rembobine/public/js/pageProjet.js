@@ -545,6 +545,13 @@ arrow.addEventListener("click", () => {
   summary.classList.toggle("is-open");
 });
 
+const original_article_container = document.querySelector(".original-article-container");
+const original_article_arrow = document.querySelector(".original-article-discover");
+
+original_article_arrow.addEventListener("click", () => {
+  original_article_container.classList.toggle("is-open");
+});
+
 const impact_explanation = document.querySelector(".impact-explanation");
 const impact_arrow = document.querySelector(".impact-unfolding");
 
@@ -560,3 +567,9 @@ console.log(sommet);
 sommet.addEventListener("click", () => {
   dest.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+const cross = document.querySelector(".green-bar-cross");
+const green_bar = document.querySelector("#announcement-bar-root");
+cross.addEventListener("click", () => {
+  green_bar.style.display = "none";
+})
