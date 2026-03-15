@@ -298,19 +298,19 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
             //Possibility to copy the text of the action
             if (document.getElementById("copy-button") === null) {
               let copyb = document.createElement("p");
-              copyb.textContent = "Appuyez ici";
+              copyb.textContent = " 👉 Pour copier le message de cette action, c'est ici !";
               copyb.id = "copy-button";
               copyb.style.textDecoration = "underline";
               copyb.style.cursor = "pointer";
               copyb.style.color = " #BAA2EA";
               copyb.addEventListener("click", () => {
-                navigator.clipboard.writeText(Actions[box.nAction].Texteplus);
+                navigator.clipboard.writeText(Actions[box.nAction].Copy);
                 const msg = document.createElement("div");
                 msg.textContent = "Texte copié !";
                 msg.className = "copy-toast";
                 document.body.appendChild(msg);
 
-                // Disparition après 1 seconde
+                // Dissapear after 1 second
                 setTimeout(() => {
                   msg.remove();
                 }, 1000);
