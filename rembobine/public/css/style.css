@@ -472,7 +472,7 @@ button {
 }
 
 .summary-container {
-  background-color: var(--color-purple);
+  background-color: var(--color-dark-purple);
   width: 50%;
   aspect-ratio: 1 / 1;
   display: flex;
@@ -498,6 +498,7 @@ button {
 
 .summary {
   display: grid;
+  background-color:var(--color-purple);
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.4s ease;
   margin: 0 -25px;
@@ -505,7 +506,7 @@ button {
 
 .summary-animation {
   overflow: hidden;
-  background-color: rgb(228, 223, 223);
+  text-align: left;
   box-sizing: border-box;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -848,6 +849,7 @@ button {
 #popup-box.action {
 
   background-image: url("../img/triangleAction-.svg");
+  white-space: pre-wrap;
   box-sizing: border-box;
   border: solid 1px var(--color-purple);
 
