@@ -91,7 +91,7 @@ function createButtonBox(boxId = "box1", aRow = 1, aColumn = 1) {
       const value = option.number;
 
       // Play a pulse animation on the box when an option is clicked
-      box.style.animation = "pulse 0.5s ease-out";
+      box.style.animation = "pulse 0.2s ease-out";
       setTimeout(() => {
         box.style.animation = "";
       }, 500);

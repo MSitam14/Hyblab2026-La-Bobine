@@ -95,15 +95,24 @@
   ],
   "Actions": [
     {
-      "Base": "Vous pouvez faire une action ! C'est la premiere",
-      "Texteplus": "Vous pouvez partager l'enquête pour remettre le sujet sur le devant de la scène et faire avancer les choses ! Pour cela copiez le message juste en-dessous et partagez le sur vos réseaux.",
-      "Copy": "Je partage cette enquête essentielle sur les “Maisons russes” en Afrique. Elle montre comment la Russie utilise la culture pour étendre son influence. Plus on en parle, plus on peut faire bouger les lignes. 👉 https://www.rembobine.info/afrique-russie-influence-maison-russe"
+      "Base": "Pour plus d'impact, emparez-vous de l'enquête !",
+      "Texteplus": "Partagez l'enquête d'Afrique XXI et le décryptage de son impact par Rembobine. C'est en faisant exister ces sujets qu'on commence à faire bouger les lignes!\n\nEnvie de vous engager ?\nVoici un texte témoin à communiquer à votre maire/député local pour aider la diffusion et l'impact de l'enquête",
+      "Copy": "Je partage cette enquête essentielle sur les “Maisons russes” en Afrique. Elle montre comment la Russie utilise la culture pour étendre son influence. Plus on en parle, plus on peut faire bouger les lignes. 👉 https: //www.rembobine.info/afrique-russie-influence-maison-russe"
     },
     {
-      "Base": "Vous pouvez faire une action !, c'est la seconde",
-      "Texteplus": "Vous pouvez partager le sujet avec d'autres journaux et/ou chaînes de télé afin qu'ils en fassent un reportage ! Pour cela copiez le message juste en-dessous et envoyez le à leur adresse de contact.",
+      "Base": "Pour plus d'impact, emparez-vous de l'enquête !",
+      "Texteplus": "Vous pouvez partager le sujet avec d'autres journaux et/ou chaînes de télé afin qu'ils en fassent un reportage !\n\nPour cela copiez le message juste en-dessous et envoyez le à leur adresse de contact.",
       "Copy": "Bonjour, Je vous écris pour attirer votre attention sur un sujet très peu couvert dans les médias : l’expansion des “Maisons russes” en Afrique et leur rôle dans la stratégie d’influence du Kremlin. Une enquête récente montre comment ces structures culturelles servent à diffuser un récit favorable à la Russie tout en marginalisant les voix locales. Ce phénomène mérite une vraie mise en lumière dans vos programmes. Merci d’envisager un reportage ou un décryptage sur ce sujet essentiel."
+    },
+    {
+      "Base": "Pour plus d'impact, emparez-vous de l'enquête !",
+      "Texteplus": "Suivez et soutenez des associations et ONG comme Amnesty International ou All eyes on Wagner qui suivent les activités de la Russie et témoignent de ses ingérences sur le continent africain et ailleurs.\n\nEnvie de vous engager ?\nVoici un texte témoin à communiquer à votre maire/député local pour aider la diffusion et l'impact de l'enquête",
+      "Copy": "Bonjour, Je vous écris pour attirer votre attention sur un sujet très peu couvert dans les médias : l’expansion des “Maisons russes” en Afrique et leur rôle dans la stratégie d’influence du Kremlin. Une enquête récente montre comment ces structures culturelles servent à diffuser un récit favorable à la Russie tout en marginalisant les voix locales. Ce phénomène mérite une vraie mise en lumière dans vos programmes. Merci d’envisager un reportage ou un décryptage sur ce sujet essentiel."
+    },
+    {
+      "Base": "Découvrez les sources !",
+      "Texteplus":"Trouvez dans le lien ci-dessous l'article original.",
+      "Copy":"https://afriquexxi.info/Les-Maisons-russes-bras-arme-du-soft-power-de-Poutine-en-Afrique?ref=rembobine.info"
     }
-    
   ]
 }
